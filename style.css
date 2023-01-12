@@ -1,0 +1,1681 @@
+@font-face {
+    font-family: Chalkboard;
+    src: url(./fonts/Chalkboard.ttc);
+}  
+    
+@font-face {
+    font-family: FredokaOneRegular;
+    src: url(./fonts/FredokaOne-Regular.ttf);
+}  
+
+@font-face {
+    font-family: OpenSansItalic;
+    src: url(./fonts/OpenSans-Italic.ttf);
+}  
+
+@font-face {
+    font-family: OpenSansSemiBold;
+    src: url(./fonts/OpenSans-SemiBold.ttf);
+}  
+
+@font-face {
+    font-family: OpenSansSemiBoldItalic;
+    src: url(./fonts/OpenSans-SemiBoldItalic.ttf);
+}  
+
+
+.contentChallenge {
+    width: 100vw;
+    height: 70vw;
+    margin: auto;
+    background-image: url('./img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#contentChallenge button {
+    font-size: calc(0.17em + 1vw);
+    font-weight: 600;
+    padding: 2px;
+}
+
+ /* Site is to be viewed only on landscape view */
+    
+ @media (orientation: landscape) {
+    #orientationWarning {
+        display: none !important;
+    }
+    #contentChallenge {
+        display: block !important;
+    }
+    #content {
+        display: block !important;
+    }
+}
+
+@media (orientation: portrait) {
+    #orientationWarning {
+        display: flex !important;
+    }
+    #contentChallenge {
+        display: none !important;
+    }
+    #content {
+        display: none !important;
+    }
+}
+
+    
+.challengeTitle {
+    /* font-size: 5vw; */
+    color: #286fb5;
+    font-family: FredokaOneRegular;
+    margin-bottom: 0px;
+}
+
+.subtitle {
+    /* font-size: 3vw !important; */
+    color: #286fb5;
+    font-family: Chalkboard;
+    margin-bottom: 0px;
+}
+
+.description-en {
+    color: #00a864;
+    font-family: OpenSansSemiBold;
+    margin-bottom: 0px;
+}
+
+.description-fr {
+    color: #286fb5;
+    font-family: OpenSansItalic;
+}
+
+.content {
+    position: absolute;
+    left: 45%;
+    top: 18%;
+    width: 50%;
+    min-height: 45%;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.box {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #286fb5;
+}
+
+.box p {
+    margin-bottom: 0px;
+}
+
+.box p {
+    color: #286fb5;
+    font-size: 0.9em;
+}
+
+.box small {
+    color: #00a864;
+    font-size: 0.8em;
+    line-height: 0.9em;
+
+}
+
+
+.image {
+    flex: 1 0 auto;
+    max-width: 70%;
+}
+
+
+
+
+
+
+
+
+
+    /* [draggable] {
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+    } */
+
+	body {
+        align-items: center;
+        display: flex;
+        min-height: 100vh;
+        font-family: OpenSansSemiBold;
+        /* user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none; 
+        -ms-user-select: none; 
+        -moz-user-select: none;
+        user-select: none;  */
+    }
+    
+    .context-menu {
+        cursor: context-menu;
+    }
+
+    img {
+        pointer-events: none;
+    }
+
+    #answers img {
+        pointer-events: auto;
+    }
+    
+    /* HOMEPAGE */
+    #main {
+        overflow: hidden;
+    }
+
+    
+    #mainPageTitle {
+        font-family: Christmas;
+        /* font-size: 6rem; */
+        /* font-size: 4.8rem; */
+        line-height: 0.8;
+        font-size: 8vw;
+    }
+
+    /* @media only screen and (min-width: 1400px) {
+        #mainPageTitle {
+            font-size: 10rem;
+            font-size: 8rem;
+        }
+    }
+    
+    @media only screen and (min-width: 1200px) {
+        #mainPageTitle {
+            font-size: 8rem;
+            font-size: 6rem;
+        }
+    }
+    
+    @media only screen and (max-width: 992px) {
+        #mainPageTitle {
+            font-size: 5rem;
+            font-size: 4rem;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) {
+        #mainPageTitle {
+            font-size: 4rem;
+            font-size: 3rem;
+        }
+    }
+    */
+    
+    /* .content {
+        width: 100vw;
+        height: 70vw;
+        margin: auto;
+        background-image: url('images/homepageBackground.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    } */
+
+    #orientationWarning {
+        background-image: url('images/challengeBackground.png');
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    #orientationWarning h1 {
+        font-size: 4rem;
+    }
+
+    @media only screen and (max-width: 992px) {
+        #orientationWarning h1 {
+            font-size: 2.5rem;
+        }
+    }
+    
+    #calendar {
+        position: absolute;
+        top: 22%;
+        left: 8%;
+        width: 85%;
+    }
+    
+    .calendarBox {
+        width: 12%;
+        word-break: break-word;
+    }
+    
+    .calendarBoxText {
+        top: 22%;
+        width: 100%;
+        height: 75%;
+    }
+    
+    .margin-right {
+        margin-right: 40px;
+    }
+    
+    .margin-bottom {
+        margin-bottom: 5px;
+    }
+    
+    .calendarNumber {
+        font-family: OpenSans;
+        margin: 0px;
+        font-size: 3vw;
+    }
+
+    .calendarText {
+        font-family: Christmas;
+        margin: 0px;
+        padding-left: 2%;
+        font-size: 2.2vw;
+        line-height: 1em;
+    }
+
+    .frenchTranslationBackgroundSmallChallenge5 {
+        background-color: #0d6efd;
+        padding: 0.2rem;
+    }
+    
+    .whiteFont {
+        color: #ffffff;
+    }
+    
+    .greenFont {
+        color: #33b167;
+    }
+    
+    .yellowFont {
+        color: #FEEB1A !important;
+    }
+    
+    .blueFont {
+        color: #0CBAE9 !important;
+    }
+    
+    .redBox {
+        background-image: url('redBox.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .yellowBox {
+        background-image: url('yellowBox.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .whiteBox {
+        background-image: url('whiteBox.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* CHALLENGES */
+    
+   
+
+    .contentChallenge13 {
+        width: 100vw;
+        height: 70vw;
+        margin: auto;
+        background-image: url('images/challengeBackground13.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .contentChallenge20 {
+        width: 100vw;
+        height: 70vw;
+        margin: auto;
+        background-image: url('images/challengeBackground20.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .contentChallenge21_1 {
+        width: 100vw;
+        height: 70vw;
+        margin: auto;
+        background-image: url('images/challengeBackground21.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .contentChallenge10_1 {
+        width: 100vw;
+        height: 70vw;
+        margin: auto;
+        background-image: url('images/challengeBackground10.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+   
+
+    .challengeTitle span {
+        font-size: 4vw !important;
+        font-family: OpenSans !important;
+    }
+
+    .challenge21Title {
+        font-size: 6vw !important;
+        color: #FFFFFF !important;
+        font-family: Christmas !important;
+        margin-bottom: 0px !important;
+        margin-top: 0% !important;
+        text-shadow: 1px 1px 20px #ffffff !important;
+    }
+
+    .challenge21Title span {
+        font-size: 4vw !important;
+        font-family: OpenSans !important;
+    }
+    
+    #challenge1LeftSide {
+        position: absolute;
+        width: 40%;
+        top: 20%;
+        left: 10%;
+    }
+    
+    #challenge2LeftSide {
+        position: absolute;
+        width: 30%;
+        top: 20%;
+        left: 6%;
+    }
+    
+  
+    #challenge9LeftSide {
+        position: absolute;
+        width: 50%;
+        top: 12%;
+        left: 2%;
+    }
+
+    #challenge24LeftSide, #challenge21LeftSide {
+        position: absolute;
+        width: 30%;
+        top: 25%;
+        left: 10%;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px 5px white;
+        text-align: left;
+    }
+
+    #challenge21LeftSide {
+        top: 20%;
+    }
+
+    #challenge24LeftSide .frenchTranslationBlue {
+        line-height: 1.2em !important;
+    }
+
+    #challenge21LeftSide .frenchTranslationBlue {
+        line-height: 1.2em !important;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        #challenge24LeftSide {
+            top: 22%;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        #challenge21LeftSide {
+            top: 18%;
+        }
+    }
+
+    table {
+        width: 100%;
+    }
+
+    table td {
+        border-right: 1px solid #0CBAE9;
+        border-bottom: 1px solid #0CBAE9;
+        color: #4966AE;
+        background-color: #FFFFFF;
+        text-align: center;
+    }
+
+    .black {
+        color: #000000;
+        font-weight: bold;
+    }
+
+    .red {  
+        color: red;
+        font-weight: bold;
+    }
+
+    .green {
+        color: darkgreen;
+        font-weight: bold;
+    }
+
+    /* .blue {
+        color: #4966AE;
+    } */
+
+    table p {
+        margin-bottom: 0px;
+    }
+    table p {
+        -webkit-user-select: none;
+        -moz-user-select: none; 
+        -khtml-user-select: none;
+        -webkit-touch-callout: none; 
+        -ms-user-select: none;
+        user-select: none; 
+        }
+       
+    table td {
+        cursor: pointer;
+    }
+
+    #bottomRow td {
+        border-bottom: none;
+    }
+
+    table tr:first-child td:first-child {
+        border-top-left-radius: 10px;
+    }
+
+    table tr:first-child td:last-child {
+        border-top-right-radius: 10px;
+    }
+
+    table tr:last-child td:first-child {
+        border-bottom-left-radius: 10px;
+    }
+
+    table tr:last-child td:last-child  {
+        border-bottom-right-radius: 10px;
+    }
+
+    table tr td:last-child {
+        border-right: none;
+    }
+
+    table td {
+        font-size: 1.6vw;
+        font-family: 'OpenSans';
+    }
+
+    #challenge20LeftSide {
+        position: absolute;
+        width: 40%;
+        top: 20%;
+        left: 5%;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px 5px white;
+        text-align: left;
+    }
+
+    #challenge8LeftSide {
+        position: absolute;
+        width: 45%;
+        top: 20%;
+        left: 13%;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px 5px white;
+        text-align: left;
+    }
+
+    #challenge24LeftSide p, #challenge21LeftSide p, #challenge8LeftSide p, #challenge13LeftSide p, #challenge20LeftSide p {
+        margin: 0px;
+        font-size: calc(0.1em + 1vw);
+        font-weight: 600 !important;
+        color: #000000;
+    }
+
+
+    
+    #challenge13LeftSide .bigger, #challenge8LeftSide .bigger {
+        font-size: calc(0.2em + 1vw);
+    }
+
+    #challenge6UpperPart .bigger {
+        font-size: calc(0.3em + 1vw);
+    }
+    #challenge4LeftSide {
+        position: absolute;
+        width: 55%;
+        top: 25%;
+        left: 2%;
+    }
+
+    #challenge11LeftSide {
+        position: absolute;
+        width: 55%;
+        top: 20%;
+        left: 2%;
+    }
+    
+    #challenge5LeftSide {
+        position: absolute;
+        width: 55%;
+        top: 20%;
+        left: 2%;
+    }
+    
+    #challenge6UpperPart {
+        position: absolute;
+        left: 13%;
+        width: 80%;
+        top: 20%;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px 5px white;
+    }
+    
+    #challenge6LowerPart {
+        position: absolute;
+        left: 13%;
+        width: 80%;
+        top: 50%;
+    }
+
+    @media only screen and (min-width: 992px) {
+        #challenge6LowerPart .buttonsDiv {
+            width: 75%;
+        }
+      
+    }
+
+    @media only screen and (min-width: 820px) {
+        #challenge6LowerPart {
+            top: 47%;
+        }
+    }
+
+    @media only screen and (max-width: 820px) {
+        #challenge13LeftSide p {
+            line-height: 1.2em;
+        }
+    }
+
+
+    @media only screen and (max-width: 992px) {
+        #challenge6UpperPart {
+            top: 15%;
+        }
+    }
+
+
+  
+    
+    #challenge7RightSide {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    #challenge14LeftSide {
+        position: absolute;
+        width: 40%;
+        top: 20%;
+        left: 4%;
+    }
+
+    #challenge18LeftSide {
+        position: absolute;
+        width: 50%;
+        top: 15%;
+        left: 12%;
+    }
+    
+    
+    #challenge15LeftSide {
+        position: absolute;
+        width: 43%;
+        top: 18%;
+        left: -1.1%;
+    }
+    
+    #challenge1RightSide {
+        position: absolute;
+        width: 35%;
+        top: 25%;
+        left: 55%;
+        text-align: left;
+    }
+    
+    .challenge1Box {
+        width: 40%;
+        border: 2px solid white;
+        border-radius: 10px;
+        text-align: left;
+        border-style: Solid;
+        border-color: #FFFFFF;
+        border-color: rgba(255, 255, 255, 1);
+        border-width: 1px;
+        border-radius: 6px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        color: white;
+    }
+    
+    #challenge2RightSide {
+        width: 55%;
+        position: absolute;
+        top: 20%;
+        left: 40%;
+    }
+    
+    .challenge2Box {
+        border: 1px solid white;
+        width: 12%;
+        padding: 0px;
+    }
+
+    .challenge19Box, .challenge16Box {
+        border: 1px solid white;
+        width: 45%;
+        padding: 0px;
+        border-radius: 10px;
+    }
+
+    .challenge11Box {
+        border: 1px solid white;
+        width: 15%;
+        padding: 0px;
+        border-radius: 5px;
+    }
+    
+    .challenge2Img {
+        width: 30%;
+        height: auto;
+        padding: 0px;
+    }
+    
+    .dropArea {
+        top: 18%;
+        left: 45%;
+        width: 50%;
+    }
+    
+    #dropArea p {
+        color: #4966AE !important;
+        font-size: 1vw !important;
+        line-height: 1.2em !important;
+        margin: 0px !important;
+    }
+    
+    #dropArea input {
+        width: 40% !important;
+        border: 1px solid #0CBAE9 !important;
+        border-radius: 3px !important;
+        background-color: transparent !important;
+        color: #4966AE;
+        text-align: center !important;
+        font-size: 0.9vw !important;
+        line-height: 1.2em !important;
+        padding: 0px !important;
+        font-weight: 600;
+    }
+    
+    #dropArea .frenchTranslationBlue {
+        color: #0CBAE9 !important;
+        font-size: 0.8vw !important;
+        font-style: italic !important;
+        font-weight: bold !important;
+        line-height: 0.8 !important;
+    }
+    .frenchTranslationBlue {
+        color: #0CBAE9 !important;
+        font-size: 1vw !important;
+        font-style: italic !important;
+        font-weight: bold !important;
+        line-height: 0.8 !important;
+    }
+    
+    #challenge23PartOne .frenchTranslationBlue {
+        color: #0CBAE9 !important;
+        font-size: 1vw !important;
+        font-style: italic !important;
+        font-weight: bold !important;
+        line-height: 1 !important;
+    }
+
+    #challenge3RightSide {
+        width: 30%;
+        position: absolute;
+        top: 65%;
+        left: 63%;
+    }
+    
+    #challenge9RightSide {
+        position: absolute;
+        width: 45%;
+        top: 22%;
+        left: 52%;
+        text-align: left;
+    }
+    #challenge24RightSide {
+        position: absolute;
+        width: 55%;
+        top: 20%;
+        left: 45%;
+        text-align: left;
+    }
+    #challenge20RightSide {
+        position: absolute;
+        width: 55%;
+        top: 15%;
+        left: 48%;
+        text-align: left;
+    }
+    #challenge21RightSide {
+        position: absolute;
+        /* width: 48%; */
+        width: 53%;
+        top: 22%;
+        left: 42%;
+        /* left: 48%; */
+        text-align: left;
+    }
+
+    #challenge8RightSide {
+        position: absolute;
+        width: 30%;
+        top: 30%;
+        left: 62%;
+        text-align: left;
+    }
+    #challenge8RightSide textarea {
+        background-color: transparent;
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        resize: none;
+    }
+    #challenge8RightSide textarea:focus {
+        outline: none;
+    }
+    
+    @media only screen and (max-width: 800px) {
+        #challenge24RightSide {
+            top: 17%;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        #challenge21RightSide{
+            top: 17%;
+        }
+    }
+
+    #challenge4RightSide,
+    #challenge5RightSide,
+    #challenge11RightSide
+    {
+        position: absolute;
+        width: 40%;
+        top: 22%;
+        left: 60%;
+        text-align: left;
+    }
+    
+    #challenge14RightSide {
+        position: absolute;
+        width: 55%;
+        top: 20%;
+        left: 45%;
+        text-align: left;
+    }
+    
+    #challenge18RightSide {
+        position: absolute;
+        width: 35%;
+        top: 35%;
+        left: 65%;
+        text-align: left;
+    }
+
+
+    /* primjer s boljim fontovima */
+    #challenge15RightSide {
+        position: absolute;
+        width: 53%;
+        top: 20%;
+        left: 45%;
+        text-align: left;
+    }
+    @media only screen and (max-width: 768px) {
+        #challenge15RightSide {
+            /* top: 17%; */
+            left: 42%;
+        }
+    }
+   
+    #challenge12RightSide {
+        position: absolute;
+        width: 57%;
+        top: 22.5%;
+        left: 38%;
+        text-align: left;
+        }
+    #challenge12LeftSide {
+        position: absolute;
+        width: 35%;
+        top: 21.5%;
+        left: 2%;
+    }
+
+   
+
+    #challenge15RightSide p, #challenge19RightSide p, #challenge22RightSide p, #challenge16RightSide p, #challenge9RightSide p, #challenge7RightSide p , #challenge14RightSide p, #challenge5RightSide p, #challenge3RightSide p, #challenge2RightSide p, #challenge1RightSide p, #challenge4RightSide p, #challenge6LowerPart p, #challenge10RightSide p, #challenge11RightSide p, #challenge24RightSide p, #challenge17PartTwo p, #challenge13RightSide p, #challenge21RightSide p, #challenge23PartTwo p, #challenge8RightSide p, #challenge8RightSide textarea, #challenge21PartTwo p, #challenge18RightSide p, #challenge20RightSide p {
+        margin: 0px;
+        color: #ffffff;
+        font-size: calc(0.2em + 1vw);
+        font-weight: 600 !important;
+    }
+
+    @media only screen and (max-width: 670px) {
+        #challenge15RightSide p {
+            line-height: 1.2em;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        #challenge20RightSide p {
+            line-height: 1.2em;
+        }
+    }
+   
+    @media only screen and (max-width: 820px) {
+        #challenge6LowerPart p {
+            margin: 0px;
+            color: #ffffff;
+            font-size: calc(0.15em + 1vw);
+            font-weight: 600 !important;
+            line-height: 1.2;
+        }
+        #challenge6LowerPart .frenchTranslation15 {
+            line-height: 1.2;
+        }
+    }
+   
+    #challenge6UpperPart p {
+        margin: 0px;
+        color: #000000;
+        font-size: calc(0.2em + 1vw);
+        font-weight: 600 !important;
+    }
+   
+    #challenge22RightSide input {
+        width: 20%;
+        border: 1px solid white;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #ffffff;
+        text-align: center;
+        padding:0px;
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+    }
+
+    #challenge15RightSide input {
+        width: 20%;
+        border: 1px solid white;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #ffffff;
+        text-align: center;
+        padding:0px;
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+    }
+
+    #challenge19LeftSide input {
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+        text-align: center;
+        color: #000000;
+        border: none;
+        background-color: transparent;
+    }
+
+    #challenge16LeftSide input, #exampleSolution {
+        font-weight: 600;
+        font-size: 0.7vw;
+        text-align: center;
+        color: #0CBAE9;
+        border: none;
+        padding: 0px;
+        background-color: transparent;
+    }
+
+    #exampleSolution {
+        color : green;
+    }
+
+    #challenge9RightSide input {
+        width: 25%;
+        border: 1px solid white;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #ffffff;
+        text-align: center;
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+    }
+    #challenge24RightSide input,  #challenge20RightSide input {
+        width: 15%;
+        border: 1px solid white;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #ffffff;
+        text-align: center;
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+    }
+
+    #challenge23PartTwo input {
+        width: 52%;
+        border: 1px solid white;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #ffffff;
+        text-align: center;
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+    }
+    #challenge21RightSide input {
+        width: 27%;
+        border: 1px solid white;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #ffffff;
+        text-align: center;
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+    }
+     #challenge7RightSide input {
+        width: 30%;
+        border: 1px solid white;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #ffffff;
+        text-align: center;
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+    }
+
+    #challenge17PartTwo input {
+        width: 20%;
+        border: 1px solid white;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #ffffff;
+        text-align: center;
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+    }
+    
+    #challenge14RightSide input {
+        width: 30%;
+        border: 1px solid white;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #ffffff;
+        text-align: center;
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+    }
+
+    #challenge5RightSide input, #challenge11RightSide input, #challenge4RightSide input {
+        width: 15%;
+        border: 1px solid white;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #ffffff;
+        text-align: center;
+        font-weight: 600;
+        font-size: calc(0.2em + 1vw);
+        padding: 0px;
+        margin: 2px;
+    }
+
+    #challenge10RightSide input {
+        background-color: transparent;
+        border: none;
+        color: #4966AE;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.7vw;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    #challenge10RightSide input:focus {
+        outline: none;
+    }
+   
+    #challenge15RightSide button, #challenge16RightSide button, #challenge19RightSide button, #challenge22RightSide button, #challenge9RightSide button, #challenge7PartOne button, #challenge7RightSide button, #challenge14RightSide button, #challenge5RightSide button, #challenge3RightSide button, #challenge2RightSide button, #challenge1RightSide button, #challenge4RightSide button, #challenge6LowerPart button {
+        font-size: calc(0.17em + 1vw);
+        font-weight: 600;
+        padding: 2px;
+    }
+
+    @media only screen and (max-width: 620px) {
+        #challenge4RightSide .returnButton {
+            width: 70% !important;
+        }
+    }
+   
+
+    
+
+
+    @media only screen and (min-width: 1200px) {
+        #challenge3RightSide button {
+            width: 77% !important;
+        }
+    }
+   
+
+    #challenge21PartTwo #instructions {
+        font-size: calc(0.1em + 1vw) !important;
+    }
+
+    .challenge21_2Buttons {
+        justify-content: center;
+        position:absolute;
+        bottom: 3%;
+        left: 15%;
+        width: 75%;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .challenge21_2Buttons {
+            width: 100%;
+            left: 0%;
+            bottom: 0%;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        #challenge21RightSide p {
+            margin-top: 0px !important;
+        }
+    }
+
+    @media only screen and (max-width: 800px) {
+        #challenge21RightSide p {
+            line-height: 1.3em;
+        }
+    }
+
+
+
+    
+    .frenchTranslation15 p {
+        color: #FEEB1A !important;
+        font-style: italic;
+        margin: 0px !important;
+        font-size: calc(0.1em + 1vw) !important;
+        font-family: OpenSans;
+    }
+
+    
+    .small {
+        color: #000000 !important;
+        font-style: italic;
+        margin: 0px !important;
+        font-size: calc(0.1em + 1vw) !important;
+        font-family: OpenSans;
+    }
+   
+    #instructions {
+        font-size: calc(0.17em + 1vw) !important;
+        font-weight: 600 !important;
+    }
+    
+    #challenge19LeftSide, #challenge16LeftSide {
+        position: absolute;
+        width: 63%;
+        left: -1.5%;
+        bottom:0.5%;
+    }
+     #challenge7ImageContainer {
+        position: absolute;
+        width: 95%;
+        top: 14%;
+        left: -1.3%;
+    }
+   
+    #challenge3LeftSide {
+        position: absolute;
+        width: 98%;
+        left: -1.5%;
+        bottom:0.5%;
+    }
+    @media only screen and (min-width: 1025px) {
+        #challenge19LeftSide, #challenge16LeftSide {
+            bottom: 1.1%;
+        }
+
+        #challenge3LeftSide {
+            left: -1.3%;
+            bottom: 0.8%;
+        }
+    }
+
+    #challenge19RightSide, #challenge16RightSide {
+        position: absolute;
+        width: 30%;
+        top: 20%;
+        left: 65%;
+        text-align: left;
+    }
+
+    @media only screen and (max-width: 768px) {
+        #challenge19RightSide, #challenge16RightSide {
+            width: 35%;
+            top: 18%;
+        }
+    }
+
+    .challenge19Box, .challenge16Box {
+        border: 1px solid white;
+        width: 45%;
+        padding: 0px;
+        border-radius: 10px;
+    }
+
+    #challenge22LeftSide {
+        position: absolute;
+        width: 57%;
+        left: -1.5%;
+        bottom:0.5%;
+    }
+
+    @media only screen and (min-width: 1025px) {
+        #challenge22LeftSide {
+            bottom:1.1%;
+        }
+    }
+
+    #challenge22RightSide {
+        position: absolute;
+        width: 43%;
+        top: 18%;
+        left: 55%;
+        text-align: left;
+    }
+
+    @media only screen and (max-width: 650px) {
+        #challenge22RightSide {
+            top: 15%;
+        }
+    }
+
+    #challenge10LeftSide {
+        position: absolute;
+        /* width: 48%;
+        top: 20%; */
+        width: 40%;
+        top: 22%;
+    }
+
+    #challenge10RightSide {
+        position: absolute;
+        /* width: 45%;
+        left: 50%;
+        top: 20%; */
+        width: 55%;
+        left: 42%;
+        top: 15%;
+    }
+
+    #challenge7PartOne {
+        position: absolute;
+        width: 80%;
+        top: 18%;
+        left: 11%;
+    }
+
+    #challenge17PartOne {
+        position: absolute;
+        width: 75%;
+        top: 18%;
+        left: 14%;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px 5px white;
+    }
+    #challenge17PartTwo {
+        width: 60%;
+        margin-left: 25%;
+    }
+    #challenge13LeftSide {
+        position: absolute;
+        width: 55%;
+        top: 20%;
+        left: 5%;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px 5px white;
+    }
+
+    
+    #challenge13RightSide {
+        position: absolute;
+        width: 35%;
+        top: 22%;
+        left: 62%;
+    }
+   
+    .challenge17Buttons {
+        position: absolute;
+        bottom: 8%;
+    }
+
+    .challenge13Buttons {
+        position: absolute;
+        bottom: 8%;
+    }
+
+    .challenge23Buttons {
+        position: absolute;
+        bottom: 10%;
+    }
+    
+    .challenge23_1Buttons {
+        position: absolute;
+        bottom: 8%;
+    }
+
+    /* @media only screen and (max-width: 620px) {
+        #challenge13LeftSide {
+            top: 11%;
+        }
+        #challenge13RightSide {
+            top: 13%;
+        }
+    } */
+    /* @media only screen and (min-width: 620px) and (max-width: 820px) {
+        #challenge13LeftSide {
+            top: 18%;
+        }
+    } */
+
+
+    @media only screen and (min-width: 1200px) {
+        #challenge13LeftSide {
+            top: 25%;
+        }
+        #challenge13RightSide {
+            top: 27%;
+        }
+    }
+
+
+    @media only screen and (max-width: 992px) {
+        .challenge23Buttons {
+            position: absolute;
+            bottom: 0%;
+        }
+    }
+
+    @media only screen and (max-width: 640px) {
+        .challenge13Buttons, .challenge17Buttons {
+            position: absolute;
+            bottom: 0%;
+        }
+        .challenge23_1Buttons {
+            position: absolute;
+            bottom: 0%;
+        }
+    }
+
+
+    @media only screen and (min-width: 640px) and (max-width: 768px) {
+        .challenge17Buttons {
+            position: absolute;
+            bottom: 1%;
+        }
+        .challenge13Buttons {
+            position: absolute;
+            bottom: 0.5%;
+        }
+        /* .challenge23Buttons {
+            position: absolute;
+            bottom: 5%;
+        } */
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 992px) {
+        .challenge17Buttons {
+            position: absolute;
+            bottom: 5%;
+        }
+        .challenge13Buttons {
+            position: absolute;
+            bottom: 0.5%;
+        }
+        /* .challenge23Buttons {
+            position: absolute;
+            bottom: 5%;
+        } */
+    }
+
+    @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+        .challenge23_1Buttons {
+            position: absolute;
+            bottom: 10%;
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .challenge23_1Buttons {
+            position: absolute;
+            bottom: 15%;
+        }
+    }
+
+    #challenge10PartOne {
+        position: absolute;
+        width: 65%;
+        top: 20%;
+        left: 20%;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px 5px white;
+    }
+
+    #challenge23PartOne {
+        position: absolute;
+        width: 65%;
+        top: 18%;
+        left: 20%;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px 5px white;
+    }
+
+    #challenge21PartOne {
+        position: absolute;
+        width: 75%;
+        top: 20%;
+        left: 15%;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px 5px white;
+    }
+
+    @media only screen and (max-width: 768px) {
+        #challenge21PartOne {
+            top: 15%;
+        }
+    
+    }
+
+    #challenge17PartOne p {
+        font-size: 1.5vw;
+        margin-bottom: 1em;
+        line-height: 1em;
+    }
+    #challenge7PartOne p{
+        font-size: 1.5vw;
+        margin-bottom: 1em;
+        line-height: 1em;
+    }
+
+    #challenge10PartOne p, #challenge21PartOne p {
+        font-size: 1.3vw;
+        margin-bottom: 1em;
+        line-height: 1em;
+    }
+
+    #challenge23PartOne p {
+        font-size: 1.3vw;
+        margin-bottom: 1em;
+        line-height: 1.2em;
+    }
+
+   
+
+    @media only screen and (min-width: 1200px) {
+        #challenge7TextBlueCircle {
+           left: 62.5% !important;
+       } 
+       #challenge23PartOne p {
+        line-height: 1.2em;
+       }
+    }
+
+    @media only screen and (min-width: 1400px) {
+        #challenge7PartOne p, #challenge10PartOne p, #challenge17PartOne p, #challenge21PartOne p, #challenge23PartOne p {
+           
+            font-size: 1.3vw;
+            margin-bottom: 0.8em;
+            line-height: 1em;
+        }
+        #challenge7PartOne .translation, #challenge17PartOne .translation, #challenge13LeftSide .translation {
+            font-size: 1.1vw !important;
+        }
+        #challenge7TextBlueCircle {
+            top: 30% !important;
+        }
+    }
+    
+    #challenge7PartOne .translation, #challenge17PartOne .translation, #challenge13LeftSide .translation {
+        font-size: 1.3vw;
+        line-height: 1em;
+        font-weight: 600;
+    }
+    
+    #challenge7TextBlueCircle p{
+        font-size: 1.3vw;
+    }
+
+    #challenge7TextBlueCircle {
+        position: absolute;
+        top: 28%;
+        left: 65%;
+        width: 35%;
+    }
+    
+    
+    @media only screen and (min-width: 1400px) {
+      
+
+        #challenge6UpperPart {
+            left: 20%;
+            width: 65%;
+            padding: 10px;
+
+        }
+        
+        #challenge6LowerPart {
+            position: absolute;
+            left: 20%;
+            width: 65%;
+            top: 47%;
+        }
+        
+
+        #challenge14RightSide, #challenge14LeftSide {
+            top: 25%;
+        }
+
+    }
+
+    @media only screen and (min-width: 1200px) and (max-width: 1400px) {
+       
+        #challenge4RightSide {
+            position: absolute;
+            width: 40%;
+            top: 25%;
+            left: 60%;
+            text-align: left;
+        }
+
+     
+        #challenge6UpperPart {
+            left: 15%;
+            width: 75%;
+            padding: 10px;
+        }
+        #challenge6LowerPart {
+            left: 15%;
+            width: 75%;
+            top: 47%;
+        }
+
+       
+        #challenge7PartOne, #challenge10PartOne, #challenge17PartOne, #challenge21PartOne, #challenge23PartOne {
+            top: 20%;
+         }
+    }
+
+    @media only screen and (max-width: 992px) {
+        #challenge1LeftSide {
+            width: 45%;
+            left: 5%;
+        }
+        #challenge2RightSide {
+            width: 60%;
+        }
+        .challenge11Box {
+            width: 18%;
+        }
+       
+    }
+
+    @media only screen and (max-width: 620px) {
+        #challenge6UpperPart {
+            width: 90%;
+            left: 8%;
+            top: 15%;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) {
+      
+        .challenge1Box {
+            width: 30%;
+        }
+        #challenge1RightSide {
+            width: 45%;
+        }
+        
+        
+        #challenge5RightSide {
+            top: 18%;
+        }
+
+        .frenchTranslationBackgroundSmall {
+            background-color: #0d6efd;
+            padding: 0.2rem;
+        }
+    }
+
+    /* SNOWFLAKE */
+    #snowflake {
+        width: 8vw;
+        height: 90px;
+    }
+
+    /* GAUGE */
+    .gauge-wrapper {
+        display: inline-block;
+        width: auto;
+        margin-left: -30px;
+    }
+    
+    .gauge {
+        /* width: 150px;
+        height: 75px; */
+        width: 20vw;
+        height: 10vw;
+        position: relative;
+    }
+
+    .gauge img {
+        position: absolute;
+        width: 130%;
+        left: -8%;
+    }
+
+    #gaugeLabel {
+        z-index: 45;
+    }
+
+    .needle {
+        /* width:60px;
+        height: 5.25px; */
+        /* bottom: -1px; */
+        /* left: 8px; */
+
+        width: 8vw;
+        height: 0.6vw;
+        left: 2vw;
+        bottom: -0.2vw;
+
+        background: white;
+        border-bottom-left-radius: 100%!important;
+        border-bottom-right-radius: 5px!important;
+        border-top-left-radius: 100%!important;
+        border-top-right-radius: 5px!important;
+        position: absolute;
+        transform-origin: 100% 4px;
+        transform: rotate(0deg);
+        box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.38);
+        display:none;
+        z-index:9;
+    }
+
+    .four.success .needle {animation: fourspeed 2s 1 both; animation-delay: 1s; display:block;}
+       
+    :root {
+        --angle : 0deg;
+    }
+
+    @keyframes fourspeed {
+        0% {transform: rotate(0);}
+        100% {transform: rotate(var(--angle));}
+    }
+
+    @-webkit-keyframes fourspeed{
+        0% {transform: rotate(0);}
+        100% {transform: rotate(var(--angle));}
+    }
+
+    @media only screen and (min-width: 992px) {
+         /* .gauge {
+            width: 200px;
+            height: 100px;
+        } */
+
+        /* .needle {
+            width: 80px;
+            height: 7px;
+            left : 20px;
+        } */
+    }
+
+
+   
