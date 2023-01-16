@@ -306,36 +306,181 @@ const content = {
             "fr" : "tissu"
         }
     ]
+    // "8" : [
+    //     {
+    //         "img" : "car.svg",
+    //         "en" : "car",
+    //         "fr" : "voiture"
+    //     },
+    //     {
+    //         "img" : "leg.svg",
+    //         "en" : "leg",
+    //         "fr" : "jambe"
+    //     },
+    //     {
+    //         "img" : "pig.svg",
+    //         "en" : "pig",
+    //         "fr" : "cochon"
+    //     },
+    //     {
+    //         "img" : "eye.svg",
+    //         "en" : "eye",
+    //         "fr" : "œil"
+    //     },
+    //     {
+    //         "img" : "cow.svg",
+    //         "en" : "cow",
+    //         "fr" : "vache"
+    //     },
+    //     {
+    //         "img" : "book.svg",
+    //         "en" : "book",
+    //         "fr" : "livre"
+    //     },
+    //     {
+    //         "img" : "baby.svg",
+    //         "en" : "baby",
+    //         "fr" : "bébé"
+    //     },
+    //     {
+    //         "img" : "bear.svg",
+    //         "en" : "bear",
+    //         "fr" : "ours"
+    //     },
+    //     {
+    //         "img" : "coat.svg",
+    //         "en" : "coat",
+    //         "fr" : "manteau"
+    //     },
+    //     {
+    //         "img" : "duck.svg",
+    //         "en" : "duck",
+    //         "fr" : "canard"
+    //     }
+    // ]
+}
+
+const levels = {
+    "easy" : ["1", "2", "3", "4", "5", "6", "7"],
+    "hard" : ["8"]
 }
 
 
+const description = {
+    "easy" : {
+        "description-en" : "Spell the following works in English then listen to the answers.",
+        "description-fr" : "Épelle les mots suivants en anglais puis écoute les reponses."
+    },
+    "hard" : {
+        "description-en" : "Find the missing letters in the following words by listening to their pronunciations.",
+        "description-fr" : "Retrouve les lettres manquantes des mots suivants en écoutant leurs prononciations."
+    }
+}
+
+const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+
 function setData(page) {
+    $('.description-en').empty();
+    $('.description-fr').empty();
     $('.first-row').empty();
     $('.second-row').empty();
+    $('#image-map').empty();
+    $('audio')[0].pause();
+
+    let level;
+
+    $.each(levels, function(key, value) {
+        if (value.includes(page)) {
+            $('.description-en').html(`${description[key]['description-en']} <span><img src="./img/audio_icon.svg"></img></span>`);
+            $('.description-fr').html(`${description[key]['description-fr']}`);
+            level = key;
+        }
+    })
+    
     content[page].slice(0,5).forEach(element => {
-        let box_template = `<div class="col d-flex flex-column align-items-center box text-center p-2 me-2 rounded-3">
-                        <img class="audio-icon align-self-end" src="./img/audio_icon.svg"></img>
-                        ${element.img ? `<img src="./img/${element.img}" class="mb-2 mt-2 image"></img>` : ''}
-                        <p ${!element.img ? 'class="align-self-start"' : ''}>${element.en}</p>
-                        <small ${!element.img ? 'class="align-self-start"' : ''}><i>${element.fr}</i></small>
-                    </div>`;
+        // let paragraph;
+
+        // if (level !== 'hard') {
+        //     paragraph =  `<p ${!element.img ? 'class="align-self-start"' : ''}>${element.en}</p>`;
+        // } else {
+        //     paragraph = `<p ${!element.img ? 'class="align-self-start"' : ''}>${createRandomPuzzle(element.en)}</p>`;
+        // }
+
+        let box_template = `<div class="col d-flex flex-column align-items-center box text-center p-1 p-xl-2 me-2 rounded-3">
+                                <div class="audio-icon align-self-end"></div>
+                                <div class="image">
+                                    ${element.img ? `<img src="./img/${element.img}" class="w-100 mb-xxl-2 mt-xxl-2"></img>` : ''}
+                                </div>
+                                <p ${!element.img ? 'class="align-self-start"' : ''}>${element.en}</p>
+                               
+                                <small ${!element.img ? 'class="align-self-start"' : ''}><i>${element.fr}</i></small>
+                            </div>`;
 
         $('.first-row').append(box_template);
     })
 
+
     content[page].slice(5).forEach(element => {
-        let box_template = `<div class="col d-flex flex-column align-items-center box text-center p-2 me-2 rounded-3">
-                                <img class="audio-icon align-self-end" src="./img/audio_icon.svg"></img>
-                                ${element.img ? `<img src="./img/${element.img}" class="mb-2 mt-2 image"></img>` : ''}
+        let box_template = `<div class="col d-flex flex-column align-items-center box text-center p-1 p-xl-2 me-2 rounded-3">
+                                <div class="audio-icon align-self-end"></div>
+                                <div class="image">
+                                ${element.img ? `<img src="./img/${element.img}" class="w-100 mb-xxl-2 mt-xxl-2"></img>` : ''}
+                                </div>
                                 <p ${!element.img ? 'class="align-self-start"' : ''}>${element.en}</p>
                                 <small ${!element.img ? 'class="align-self-start"' : ''}><i>${element.fr}</i></small>
                             </div>`;
 
         $('.second-row').append(box_template);
+        
     })
 
     currentPage = page;
     if (order.length === 0) order = Object.keys(content);
+
+    $('.audio-icon').on('click', function(){
+        const file = $(this).siblings('p').text().toUpperCase();
+        $('#audio').attr('src', `audio/${file}.wav`);
+    });
+
+    $.each(letters, function(index, value){
+        $('#image-map').append(`<div class="col-2" onclick="playLetterSound('${value}')"></div>`)
+    })
+}
+
+function getMultipleRandom(arr, num) {
+    const shuffled = [...arr].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, num);
+}
+
+
+function createRandomPuzzle(string) {
+    const letters = string.split('');
+
+    let num;
+
+    if (letters.length < 4) {
+        num = 1;
+    }
+    else if (letters.length < 8) {
+        num = 2;
+    }
+    else {
+        num = 3;
+    }
+
+    const randomLetters = getMultipleRandom(letters, num);
+
+    let paragraphs = '';
+
+    letters.forEach(letter => {
+        paragraphs = paragraphs + `<p class=${randomLetters.includes(letter) ? 'active' : 'not-active'}>${randomLetters.includes(letter) ? '' : letter}</p>`
+    })
+    return paragraphs;
+}
+
+function playLetterSound(letter) {
+    $('#audio').attr('src', `audio/${letter}.wav`);
 }
 
 function setNext() {
@@ -348,6 +493,9 @@ function getNextPage() {
     return (parseInt(currentPage) + 1).toString();
 }
 
+
+
+// OLD CODE
 
 
 

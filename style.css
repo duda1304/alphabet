@@ -23,18 +23,42 @@
     src: url(./fonts/OpenSans-SemiBoldItalic.ttf);
 }  
 
+body {
+    align-items: center;
+    display: flex;
+    min-height: 100vh;
+    font-family: OpenSansSemiBold;
+    background-image: linear-gradient(#aedef3, #80bf6c);
+    /* user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    -moz-user-select: none;
+    user-select: none;  */
+}
 
-.contentChallenge {
-    width: 100vw;
-    height: 70vw;
-    margin: auto;
+.context-menu {
+    cursor: context-menu;
+}
+
+img {
+    pointer-events: none;
+}
+
+#main {
     background-image: url('./img/background.png');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#content {
+    width: 100vw;
+    height: 70vw;
+    margin: auto;
     position: relative;
 }
 
-#contentChallenge button {
+#content button {
     font-size: calc(0.17em + 1vw);
     font-weight: 600;
     padding: 2px;
@@ -46,9 +70,6 @@
     #orientationWarning {
         display: none !important;
     }
-    #contentChallenge {
-        display: block !important;
-    }
     #content {
         display: block !important;
     }
@@ -58,36 +79,47 @@
     #orientationWarning {
         display: flex !important;
     }
-    #contentChallenge {
-        display: none !important;
-    }
     #content {
         display: none !important;
     }
 }
 
-    
+#orientationWarning {
+    background-image: url('./img/background_portrait.png');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#orientationWarning h1 {
+    font-size: min(7vw, 40px);
+    padding: 10%;
+}
+
 .challengeTitle {
-    /* font-size: 5vw; */
+    font-size: min(5vw, 64px);
     color: #286fb5;
     font-family: FredokaOneRegular;
     margin-bottom: 0px;
 }
 
 .subtitle {
-    /* font-size: 3vw !important; */
+    font-size: min(3vw, 40px);
     color: #286fb5;
     font-family: Chalkboard;
     margin-bottom: 0px;
 }
 
 .description-en {
+    font-size: max(min(1.2vw, 26px), 14px);
     color: #00a864;
     font-family: OpenSansSemiBold;
     margin-bottom: 0px;
 }
 
 .description-fr {
+    font-size: max(min(1vw, 24px), 12px);
     color: #286fb5;
     font-family: OpenSansItalic;
 }
@@ -98,7 +130,6 @@
     top: 18%;
     width: 50%;
     min-height: 45%;
-   
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -111,27 +142,72 @@
 }
 
 .box p {
-    margin-bottom: 0px;
-}
-
-.box p {
     color: #286fb5;
-    font-size: 0.9em;
+    font-size: max(min(1vw, 24px), 12px);
+    margin-bottom: 0px;
 }
 
 .box small {
     color: #00a864;
-    font-size: 0.8em;
+    font-size: max(min(0.9vw, 22px), 10px);
     line-height: 0.9em;
-
 }
 
+.audio-icon {
+    width: max(15%, 14px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    /* height: max(15%, 14px); */
+    background-image: url(./img/audio_icon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.audio-icon img {
+    width: 100%;
+}
 
 .image {
     flex: 1 0 auto;
-    max-width: 70%;
+    max-width: 80%;
+    display: flex;
+    align-items: center;
 }
 
+.image img {
+    height: min(50px, auto);
+}
+
+#image-map {
+    position: absolute;
+    top: 18%;
+    height: 48%;
+    width: 41%;
+    left: 2%;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#image-map div {
+    height: 20%;
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        top: 15%;
+    }
+
+    .image {
+        max-width: 60%;
+    }
+
+    img[src*="vase"] {
+        max-height: 40px;
+    }
+    
+}
 
 
 
@@ -148,26 +224,7 @@
         -webkit-touch-callout: none;
     } */
 
-	body {
-        align-items: center;
-        display: flex;
-        min-height: 100vh;
-        font-family: OpenSansSemiBold;
-        /* user-select: none;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none; 
-        -ms-user-select: none; 
-        -moz-user-select: none;
-        user-select: none;  */
-    }
-    
-    .context-menu {
-        cursor: context-menu;
-    }
-
-    img {
-        pointer-events: none;
-    }
+	
 
     #answers img {
         pointer-events: auto;
@@ -226,23 +283,7 @@
         position: relative;
     } */
 
-    #orientationWarning {
-        background-image: url('images/challengeBackground.png');
-        background-size: cover;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-    }
-
-    #orientationWarning h1 {
-        font-size: 4rem;
-    }
-
-    @media only screen and (max-width: 992px) {
-        #orientationWarning h1 {
-            font-size: 2.5rem;
-        }
-    }
+  
     
     #calendar {
         position: absolute;
